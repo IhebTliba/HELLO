@@ -7,11 +7,13 @@
                 echo 'build'
                  
             }
-            post {
-                success {
-                    echo 'Now Archiving'
-                }
+         stage('Test') {
+            steps {
+                 sh 'mvn -f HELLO/pom.xml test'
+                 
             }
+         
+             
         }
     }
 }
