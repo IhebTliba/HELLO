@@ -1,21 +1,20 @@
  pipeline {
     agent any
-
+    tools {
+        maven 'mavenHome'
+        jdk 'JavaHome'
+    }
     stages {
-        
         stage('Build') {
             steps {
-                echo 'Building'
+                echo 'maven clean'
+                //ABC indicates the folder name where the pom.xml file resides
+                bat ' mvn -f ABC/pom.xml clean install'  
             }
-        }
-        stage('Test') {
-            steps {
-                echo 'testing'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'deploying'
+            post {
+                success {
+                    echo 'Now Archiving'
+                }
             }
         }
     }
