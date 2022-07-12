@@ -1,19 +1,10 @@
  pipeline {
-    agent any
-    
-    stages {
-        stage('Build') {
-            steps {
-                echo 'build'
-                 
-            }
-         stage('Test') {
-            steps {
-                 sh 'mvn -f HELLO/pom.xml test'
-                 
-            }
-         
-             
-        }
-    }
-}
+          agent any 
+          stages {
+              stage('Stage 1') {
+                  steps {
+                      echo 'Hello world!' 
+                  }
+              }
+          }
+      }
